@@ -25,3 +25,18 @@ pic2[:, :, 0] = pic2[:, :, 1] = pic2[:, :, 2] = (
     pic[:, :, 0] + pic[:, :, 1] + pic[:, :, 2]
 ) / 3
 ax_bw.imshow(pic2, aspect="auto")
+
+ax_text = fig.add_axes([0.05, 0.05, 0.3, 0.1])
+ax_text.set_frame_on(True)
+ax_text.set_xticks([])
+ax_text.set_yticks([])
+ax_text.text(
+    0.5,
+    0.5,
+    "DAEMON",
+    fontsize=20,
+    fontweight="bold",
+    va="center",
+    ha="center",
+    transform=ax_text.transAxes,
+)
