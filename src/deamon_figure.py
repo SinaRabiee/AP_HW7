@@ -40,3 +40,29 @@ ax_text.text(
     ha="center",
     transform=ax_text.transAxes,
 )
+
+
+ax_sin = fig.add_axes([0.05, 0.2, 0.9, 0.3], xlim=(-50, 50), ylim=(-50, 50))
+ax_sin.set_frame_on(False)
+ax_sin.set_xticks([])
+ax_sin.set_yticks([])
+(line,) = ax_sin.plot([], [], color="black", linewidth=5)
+
+
+def init():
+    line.set_data([], [])
+    return (line,)
+
+
+def animate(i):
+    x = np.linspace(-100, 100, 1000)
+    y = 10 * np.sin(0.5 * np.pi * (x - 0.1 * i))
+    line.set_data(x, y)
+    return (line,)
+
+
+anim = animation.FuncAnimation(
+    fig, animate, init_func=init, frames=500, interval=20, blit=True
+)
+
+plt.show()
