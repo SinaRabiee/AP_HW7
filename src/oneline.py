@@ -1,0 +1,40 @@
+def adjacentElementsProduct(inputArray):
+    return max(a * b for a, b in zip(inputArray[:-1], inputArray[1:]))
+
+
+def allLongestStrings(inputArray):
+    return [i for i in inputArray if len(i) == len(max(inputArray, key=len))]
+
+
+# def allLongestStrings(inputArray):
+#     return [i for i in inputArray if len(i) == max([len(i) for i in inputArray])]
+
+
+def checkPalindrome(inputString):
+    return inputString == inputString[::-1]
+
+
+# def checkPalindrome(inputString):
+#     return sum(
+#         inputString[i - 1] == inputString[-i] for i in range(1, len(inputString))
+#     )
+
+
+def commonCharacterCount(s1, s2):
+    return sum(min(s1.count(x), s2.count(x)) for x in set(s1))
+
+
+def areSimilar(A, B):
+    return sorted(A) == sorted(B) and sum([a != b for a, b in zip(A, B)]) <= 2
+
+
+def palindromeRearranging(inputString):
+    return sum([inputString.count(i) % 2 for i in set(inputString)]) <= 1
+
+
+def arrayReplace(i, e, s):
+    return [x if x != e else s for x in i]
+
+
+def evenDigitsOnly(n):
+    return all([int(i) % 2 == 0 for i in str(n)])
