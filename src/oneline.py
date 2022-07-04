@@ -38,3 +38,11 @@ def arrayReplace(i, e, s):
 
 def evenDigitsOnly(n):
     return all([int(i) % 2 == 0 for i in str(n)])
+
+
+def alphabeticShift(inputString):
+    return "".join(chr(ord(i) + 1) if i != "z" else "a" for i in inputString)
+
+
+def firstDigit(inputString):
+    return [int(i) for i in inputString if i.isdigit()][0]
